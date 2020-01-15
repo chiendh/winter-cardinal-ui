@@ -39,6 +39,7 @@
 		"prepublishOnly": "npm run build"
 	},
 	"dependencies": {
+		"event-bus-station": "^1.0.0",
 		"pixi.js": "^5.1.5"
 	},
 	"devDependencies": {
