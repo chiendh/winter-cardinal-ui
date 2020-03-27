@@ -1,0 +1,36 @@
+import { IPoint } from "pixi.js";
+import { EShape } from "../e-shape";
+import { EShapeCorner } from "../e-shape-corner";
+import { EShapeFill } from "../e-shape-fill";
+import { EShapeGradientLike } from "../e-shape-gradient";
+import { EShapePoints } from "../e-shape-points";
+import { EShapeStroke } from "../e-shape-stroke";
+import { EShapeTag } from "../e-shape-tag";
+import { EShapeText } from "../e-shape-text";
+import { EShapeType } from "../e-shape-type";
+import { EShapeBase } from "./e-shape-base";
+export declare abstract class EShapePrimitive extends EShapeBase {
+    readonly size: IPoint;
+    readonly fill: EShapeFill;
+    readonly stroke: EShapeStroke;
+    protected _radius: number;
+    protected _corner: EShapeCorner;
+    points?: EShapePoints;
+    protected _image?: HTMLImageElement;
+    gradient?: EShapeGradientLike;
+    readonly text: EShapeText;
+    readonly tag: EShapeTag;
+    cursor: string;
+    constructor(type: EShapeType);
+    protected newSize(): IPoint;
+    protected newFill(): EShapeFill;
+    protected newStroke(): EShapeStroke;
+    protected newText(): EShapeText;
+    abstract clone(): EShape;
+    get corner(): number;
+    set corner(corner: number);
+    get radius(): number;
+    set radius(radius: number);
+    get image(): HTMLImageElement | undefined;
+    set image(image: HTMLImageElement | undefined);
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"d-diagram-canvas-tag-map.js","sourceRoot":"","sources":["../../../src/main/typescript/wcardinal/ui/d-diagram-canvas-tag-map.ts"],"names":[],"mappings":"","sourcesContent":["import { EShapeTagValue } from \"./shape/e-shape-tag-value\";\r\n\r\nexport interface DDiagramCanvasTagMap {\r\n\t[ id: string ]: EShapeTagValue[] | undefined;\r\n}\r\n"]}

@@ -1,0 +1,54 @@
+import { Texture, TextureUvs } from "pixi.js";
+import { EShape } from "./e-shape";
+import { EShapeBuffer } from "./e-shape-buffer";
+import { EShapeBufferUnitBuilder } from "./e-shape-buffer-unit-builder";
+import { EShapeCorner } from "./e-shape-corner";
+export interface EShapeUploaded {
+    update(shape: EShape): void;
+    isCompatible(shape: EShape): boolean;
+    getBuffer(): EShapeBuffer;
+    getVertexOffset(): number;
+    getVertexCount(): number;
+    getIndexOffset(): number;
+    getIndexCount(): number;
+    buildUnit(builder: EShapeBufferUnitBuilder): void;
+}
+export declare abstract class EShapeUploadedBase implements EShapeUploaded {
+    protected buffer: EShapeBuffer;
+    protected transformLocalId: number;
+    protected vertexOffset: number;
+    protected vertexCount: number;
+    protected indexOffset: number;
+    protected indexCount: number;
+    protected colorFill: number;
+    protected alphaFill: number;
+    protected colorStroke: number;
+    protected alphaStroke: number;
+    protected sizeX: number;
+    protected sizeY: number;
+    protected strokeWidth: number;
+    protected strokeAlign: number;
+    protected strokeSide: number;
+    protected radius: number;
+    protected corner: EShapeCorner;
+    protected texture: Texture | null;
+    protected textureTransformId: number;
+    protected antialiasWeight: number;
+    constructor(buffer: EShapeBuffer, voffset: number, ioffset: number, vcount: number, icount: number, antialiasWeight: number);
+    init(shape: EShape): this;
+    abstract update(shape: EShape): void;
+    isCompatible(shape: EShape): boolean;
+    getBuffer(): EShapeBuffer;
+    getVertexOffset(): number;
+    getVertexCount(): number;
+    getIndexOffset(): number;
+    getIndexCount(): number;
+    protected toTransformLocalId(shape: EShape): number;
+    protected toTexture(shape: EShape): Texture;
+    protected toTextureTransformId(texture: Texture): number;
+    protected toTextureUvs(texture: Texture): TextureUvs;
+    protected updateColorFill(buffer: EShapeBuffer, shape: EShape, vertexCount: number): void;
+    protected updateColorStroke(buffer: EShapeBuffer, shape: EShape, vertexCount: number): void;
+    protected updateColorFillAndStroke(buffer: EShapeBuffer, shape: EShape, vertexCount: number): void;
+    buildUnit(builder: EShapeBufferUnitBuilder): void;
+}

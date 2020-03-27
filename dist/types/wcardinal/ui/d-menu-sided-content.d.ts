@@ -1,0 +1,11 @@
+import { DLayoutHorizontal } from "./d-layout-horizontal";
+import { DLayoutVerticalOptions, DThemeLayoutVertical } from "./d-layout-vertical";
+export interface DMenuSidedContentOptions<THEME extends DThemeMenuSidedContent = DThemeMenuSidedContent> extends DLayoutVerticalOptions<THEME> {
+}
+export interface DThemeMenuSidedContent extends DThemeLayoutVertical {
+}
+export declare class DMenuSidedContent<THEME extends DThemeMenuSidedContent = DThemeMenuSidedContent, OPTIONS extends DMenuSidedContentOptions<THEME> = DMenuSidedContentOptions<THEME>> extends DLayoutHorizontal<THEME, OPTIONS> {
+    protected init(options?: OPTIONS): void;
+    protected initReflowable(): void;
+    protected getType(): string;
+}

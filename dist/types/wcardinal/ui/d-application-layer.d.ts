@@ -1,0 +1,35 @@
+import { Application } from "pixi.js";
+import { DApplicationLayerLike } from "./d-application-layer-like";
+import { DApplicationLayerOptions } from "./d-application-layer-options";
+import { DApplicationLike } from "./d-application-like";
+import { DControllerFocus } from "./d-controller-focus";
+import { DPadding } from "./d-padding";
+import { DynamicFontAtlases } from "./util/dynamic-font-atlases";
+export declare class DApplicationLayer extends Application implements DApplicationLayerLike {
+    protected _options: DApplicationLayerOptions;
+    protected _renderId: number | null;
+    protected _renderBound: () => void;
+    protected _isUpdateAllowed: boolean;
+    protected _refitLimit: number;
+    protected _reflowLimit: number;
+    protected _focus?: DControllerFocus;
+    protected _elementContainer: HTMLDivElement;
+    protected _dynamicFontAtlases: DynamicFontAtlases | null;
+    protected _isVisible: boolean;
+    readonly application: DApplicationLike;
+    constructor(application: DApplicationLike, options: DApplicationLayerOptions);
+    disallowUpdate(): void;
+    allowUpdate(): void;
+    update(): void;
+    protected updateVisibility(): void;
+    render(): void;
+    get width(): number;
+    get height(): number;
+    get padding(): DPadding;
+    protected resizeChildren(width: number, height: number, padding: DPadding): void;
+    refit(): void;
+    reflow(): void;
+    getFocusController(): DControllerFocus;
+    getElementContainer(): HTMLElement;
+    getDynamicFontAtlases(): DynamicFontAtlases;
+}

@@ -1,0 +1,31 @@
+import { IPoint, Point, Rectangle } from "pixi.js";
+import { EShape } from "../e-shape";
+import { EShapeLayout } from "../e-shape-layout";
+import { EShapeGroupSize } from "./e-shape-group-size";
+import { EShapeGroupSizeParent } from "./e-shape-group-size-parent";
+export declare class EShapeGroupSizeEditor implements EShapeGroupSize {
+    protected _parent: EShapeGroupSizeParent;
+    protected _size: Point;
+    protected _layouts: EShapeLayout[];
+    protected _workPoint: Point;
+    protected _workRectForCalcRect: Rectangle;
+    protected _workRectForFit: Rectangle;
+    constructor(parent: EShapeGroupSizeParent, x: number, y: number);
+    init(): void;
+    get x(): number;
+    set x(x: number);
+    get y(): number;
+    set y(y: number);
+    set(x?: number, y?: number): this;
+    clone(): EShapeGroupSizeEditor;
+    copy(): void;
+    copyFrom(point: IPoint): this;
+    copyTo(point: IPoint): IPoint;
+    equals(point: IPoint): boolean;
+    fit(): void;
+    protected reset(children: EShape[], layouts: EShapeLayout[], size: IPoint): void;
+    calcRect(result: Rectangle): Rectangle;
+    protected onChange(ox: number, oy: number): void;
+    protected onChange_(children: EShape[], layouts: EShapeLayout[], sx: number, sy: number, px: number, py: number, ox: number, oy: number): void;
+    protected newLayout(shape: EShape, ox: number, oy: number): EShapeLayout;
+}

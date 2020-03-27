@@ -1,0 +1,21 @@
+export declare enum EShapeType {
+    CIRCLE = 0,
+    RECTANGLE = 1,
+    RECTANGLE_ROUNDED = 2,
+    TRIANGLE = 3,
+    TRIANGLE_ROUNDED = 4,
+    LINE = 5,
+    IMAGE = 6,
+    IMAGE_SDF = 7,
+    GROUP = 8,
+    BAR = 9,
+    LABEL = 10,
+    NULL = 11,
+    GROUP_SHADOWED = 12,
+    LINE_OF_CIRCLES = 13,
+    LINE_OF_RECTANGLES = 14,
+    LINE_OF_RECTANGLE_ROUNDEDS = 15,
+    LINE_OF_TRIANGLES = 16,
+    LINE_OF_TRIANGLE_ROUNDEDS = 17,
+    EXTENSION = 1000
+}

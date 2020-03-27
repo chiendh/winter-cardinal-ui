@@ -1,0 +1,35 @@
+import { DBaseOptions, DThemeBase } from "./d-base";
+import { DBaseState } from "./d-base-state";
+import { DBorderStateAware } from "./d-border";
+import { DBorderMask } from "./d-border-mask";
+import { DStateAwareOrValueMightBe } from "./d-state-aware";
+declare type Callback = () => void;
+export declare class DBaseBorder implements DBorderStateAware {
+    protected _theme: DThemeBase;
+    protected _color?: DStateAwareOrValueMightBe<number | null>;
+    protected _alpha?: DStateAwareOrValueMightBe<number>;
+    protected _width?: DStateAwareOrValueMightBe<number>;
+    protected _align?: DStateAwareOrValueMightBe<number>;
+    protected _mask?: DStateAwareOrValueMightBe<DBorderMask>;
+    protected _callback: Callback | undefined;
+    constructor(theme: DThemeBase, options?: DBaseOptions<any>, callback?: Callback);
+    getTheme(): DThemeBase;
+    setTheme(theme: DThemeBase): void;
+    getColor(state: DBaseState): number | null;
+    get color(): DStateAwareOrValueMightBe<number | null>;
+    set color(color: DStateAwareOrValueMightBe<number | null>);
+    getAlpha(state: DBaseState): number;
+    get alpha(): DStateAwareOrValueMightBe<number>;
+    set alpha(alpha: DStateAwareOrValueMightBe<number>);
+    getWidth(state: DBaseState): number;
+    get width(): DStateAwareOrValueMightBe<number>;
+    set width(width: DStateAwareOrValueMightBe<number>);
+    getAlign(state: DBaseState): number;
+    get align(): DStateAwareOrValueMightBe<number>;
+    set align(align: DStateAwareOrValueMightBe<number>);
+    getMask(state: DBaseState): number;
+    get mask(): DStateAwareOrValueMightBe<DBorderMask>;
+    set mask(mask: DStateAwareOrValueMightBe<DBorderMask>);
+    protected onChange(): void;
+}
+export {};

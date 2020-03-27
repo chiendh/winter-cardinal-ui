@@ -1,0 +1,31 @@
+import { DisplayObject, Texture } from "pixi.js";
+import { DAlignHorizontal } from "../../d-align-horizontal";
+import { DAlignVertical } from "../../d-align-vertical";
+import { DAlignWith } from "../../d-align-with";
+import { DBaseState } from "../../d-base-state";
+import { DThemeImageBase } from "../../d-image-base";
+import { DThemeWhiteTextBase } from "./d-theme-white-text-base";
+export declare class DThemeWhiteImageBase extends DThemeWhiteTextBase implements DThemeImageBase {
+    getImageAlignHorizontal(): DAlignHorizontal;
+    getImageAlignVertical(): DAlignVertical;
+    getImageAlignWith(): DAlignWith;
+    getImageMarginHorizontal(): number;
+    getImageMarginVertial(): number;
+    getImageTintColor(state: DBaseState): number | null;
+    getImageTintAlpha(state: DBaseState): number;
+    getImageSource(state: DBaseState): Texture | DisplayObject | null;
+    getSecondaryImageAlignHorizontal(): DAlignHorizontal;
+    getSecondaryImageAlignVertical(): DAlignVertical;
+    getSecondaryImageAlignWith(): DAlignWith;
+    getSecondaryImageMarginHorizontal(): number;
+    getSecondaryImageMarginVertial(): number;
+    getSecondaryImageTintColor(state: DBaseState): number | null;
+    getSecondaryImageTintAlpha(state: DBaseState): number;
+    getTertiaryImageAlignHorizontal(): DAlignHorizontal;
+    getTertiaryImageAlignVertical(): DAlignVertical;
+    getTertiaryImageAlignWith(): DAlignWith;
+    getTertiaryImageMarginHorizontal(): number;
+    getTertiaryImageMarginVertial(): number;
+    getTertiaryImageTintColor(state: DBaseState): number | null;
+    getTertiaryImageTintAlpha(state: DBaseState): number;
+}

@@ -1,0 +1,31 @@
+import { DBaseOptions, DThemeBase } from "./d-base";
+import { DPadding } from "./d-padding";
+declare type Callback = () => void;
+export declare class DBasePadding implements DPadding {
+    protected _theme: DThemeBase;
+    protected _left?: number;
+    protected _top?: number;
+    protected _right?: number;
+    protected _bottom?: number;
+    protected _callback: Callback | undefined;
+    constructor(theme: DThemeBase, options?: DBaseOptions<any>, callback?: () => void);
+    getTheme(): DThemeBase;
+    setTheme(theme: DThemeBase): void;
+    getLeft(): number;
+    get left(): number | undefined;
+    set left(left: number | undefined);
+    getTop(): number;
+    get top(): number | undefined;
+    set top(top: number | undefined);
+    getRight(): number;
+    get right(): number | undefined;
+    set right(right: number | undefined);
+    getBottom(): number;
+    get bottom(): number | undefined;
+    set bottom(bottom: number | undefined);
+    set(padding: number): void;
+    set(topAndBottom: number, leftAndRight: number): void;
+    set(top: number, leftAndRight: number, bottom: number): void;
+    set(top: number, right: number, bottom: number, left: number): void;
+}
+export {};

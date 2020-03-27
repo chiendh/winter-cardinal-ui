@@ -1,0 +1,1 @@
+{"version":3,"file":"d-diagram-canvas-id-map.js","sourceRoot":"","sources":["../../../src/main/typescript/wcardinal/ui/d-diagram-canvas-id-map.ts"],"names":[],"mappings":"","sourcesContent":["import { EShape } from \"./shape/e-shape\";\r\n\r\nexport interface DDiagramCanvasIdMap {\r\n\t[ id: string ]: EShape[] | undefined;\r\n}\r\n"]}

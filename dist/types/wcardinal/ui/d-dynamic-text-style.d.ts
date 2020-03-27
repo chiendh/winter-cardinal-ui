@@ -1,0 +1,54 @@
+import { DFontStyle, DFontVariant, DFontWeight, DThemeFont } from "./d-font";
+export declare type DDynamicTextAlign = "left" | "center" | "right";
+export interface DDynamicTextStyleOptions {
+    align?: DDynamicTextAlign;
+    fontFamily?: string;
+    fontSize?: number;
+    fontStyle?: DFontStyle;
+    fontVariant?: DFontVariant;
+    fontWeight?: DFontWeight;
+    fill?: number;
+    clipping?: boolean;
+}
+export declare class DDynamicTextStyle {
+    protected static FONT: DThemeFont | null;
+    protected _id: number;
+    protected _idApproved: number;
+    protected _fontIdId: number;
+    protected _fontId: string;
+    protected _fontIdApproved: string;
+    protected _align: DDynamicTextAlign;
+    protected _fontFamily: string;
+    protected _fontSize: number;
+    protected _fontStyle: DFontStyle;
+    protected _fontVariant: DFontVariant;
+    protected _fontWeight: DFontWeight;
+    protected _fill: number;
+    protected _fillApproved: number;
+    protected _clipping: boolean;
+    protected _onChange: () => void;
+    constructor(options: DDynamicTextStyleOptions | undefined, onChange: () => void);
+    get id(): number;
+    get idApproved(): number;
+    get fontId(): string;
+    get fontIdApproved(): string;
+    get fill(): number;
+    set fill(fill: number);
+    protected onChange(): void;
+    get fillApproved(): number;
+    approve(): void;
+    get fontFamily(): string;
+    set fontFamily(fontFamily: string);
+    get fontSize(): number;
+    set fontSize(fontSize: number);
+    get fontStyle(): DFontStyle;
+    set fontStyle(fontStyle: DFontStyle);
+    get fontVariant(): DFontVariant;
+    set fontVariant(fontVariant: DFontVariant);
+    get fontWeight(): DFontWeight;
+    set fontWeight(fontWeight: DFontWeight);
+    protected update(): void;
+    protected newFontId(): string;
+    get clipping(): boolean;
+    set clipping(clipping: boolean);
+}

@@ -1,0 +1,13 @@
+import { Matrix, TextureUvs } from "pixi.js";
+import { EShape } from "../e-shape";
+import { EShapeTextAtlas, EShapeTextStyle, EShapeTextWeight } from "../e-shape-text";
+import { EShapeTextAlignHorizontal } from "../e-shape-text-align-horizontal";
+import { EShapeTextAlignVertical } from "../e-shape-text-align-vertical";
+import { EShapeTextDirection } from "../e-shape-text-direction";
+export declare const TEXT_VERTEX_COUNT = 4;
+export declare const TEXT_INDEX_COUNT = 2;
+export declare const toTextBufferCount: (shape: EShape) => number;
+export declare const buildTextClipping: (clippings: Float32Array, voffset: number, vcount: number) => void;
+export declare const buildTextIndex: (indices: Uint16Array | Uint32Array, voffset: number, ioffset: number, icount: number) => void;
+export declare const buildTextStep: (steps: Float32Array, voffset: number, vcount: number, textAtlas: EShapeTextAtlas | undefined, textSize: number, textOutlineWidth: number, textWeight: EShapeTextWeight, antialiasWeight: number) => void;
+export declare const buildTextVertex: (vertices: Float32Array, uvs: Float32Array, voffset: number, vcount: number, originX: number, originY: number, sizeX: number, sizeY: number, textAtlas: EShapeTextAtlas, textSize: number, textValue: string, textStyle: EShapeTextStyle, textAlignHorizontal: EShapeTextAlignHorizontal, textAlignVertical: EShapeTextAlignVertical, textOffsetHorizontal: number, textOffsetVertical: number, textSpacingHorizontal: number, textSpacingVertical: number, textDirection: EShapeTextDirection, textPaddingHorizontal: number, textPaddingVertical: number, textClipping: boolean, textWorld: Float32Array, textureUvs: TextureUvs, internalTransform: Matrix) => void;

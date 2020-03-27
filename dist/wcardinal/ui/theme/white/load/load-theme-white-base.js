@@ -1,0 +1,10 @@
+/*
+ * Copyright (C) 2019 Toshiba Corporation
+ * SPDX-License-Identifier: Apache-2.0
+ */
+import { DThemeWhite } from "../d-theme-white";
+import { DThemeWhiteBase } from "../d-theme-white-base";
+export var loadThemeWhiteBase = function () {
+    DThemeWhite.set("DBase", DThemeWhiteBase);
+};
+//# sourceMappingURL=load-theme-white-base.js.map

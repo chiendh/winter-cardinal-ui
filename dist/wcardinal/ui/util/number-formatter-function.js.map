@@ -1,0 +1,1 @@
+{"version":3,"file":"number-formatter-function.js","sourceRoot":"","sources":["../../../../src/main/typescript/wcardinal/ui/util/number-formatter-function.ts"],"names":[],"mappings":"","sourcesContent":["\r\nexport type NumberFormatterFunction = ( target: number, step: number ) => string;\r\n"]}

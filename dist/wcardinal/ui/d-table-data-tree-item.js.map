@@ -1,0 +1,1 @@
+{"version":3,"file":"d-table-data-tree-item.js","sourceRoot":"","sources":["../../../src/main/typescript/wcardinal/ui/d-table-data-tree-item.ts"],"names":[],"mappings":"","sourcesContent":["export interface DTableDataTreeItem<PARENT, CHILD> {\r\n\tparent?: PARENT;\r\n\tchildren?: CHILD[];\r\n}\r\n"]}

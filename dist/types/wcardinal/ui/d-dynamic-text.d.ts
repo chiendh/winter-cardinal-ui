@@ -1,0 +1,33 @@
+import { Mesh, Renderer } from "pixi.js";
+import { DDynamicTextGeometry } from "./d-dynamic-text-geometry";
+import { DDynamicTextStyle, DDynamicTextStyleOptions } from "./d-dynamic-text-style";
+import { DynamicFontAtlas } from "./util/dynamic-font-atlas";
+export declare class DDynamicText extends Mesh {
+    protected _style: DDynamicTextStyle;
+    protected _text: string;
+    protected _textApproved: string;
+    protected _isDirty: boolean;
+    protected _isGeometryDirty: boolean;
+    protected _atlas: DynamicFontAtlas | null;
+    protected _atlasRevisionUpdated: number;
+    protected _width: number;
+    protected _height: number;
+    protected _clippingWidth: number | undefined;
+    protected _clippingWidthDelta: number;
+    readonly geometry: DDynamicTextGeometry;
+    constructor(text: string, options?: DDynamicTextStyleOptions);
+    protected update_(): void;
+    get text(): string;
+    set text(text: string);
+    get width(): number;
+    set width(width: number);
+    get height(): number;
+    set height(height: number);
+    get clipped(): boolean;
+    get style(): DDynamicTextStyle;
+    update(): void;
+    protected getClippingWidth(): number | undefined;
+    setClippingWidthDelta(width: number): void;
+    _calculateBounds(): void;
+    _render(renderer?: Renderer): void;
+}

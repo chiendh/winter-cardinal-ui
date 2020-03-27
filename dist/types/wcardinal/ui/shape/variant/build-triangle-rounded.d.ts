@@ -1,0 +1,10 @@
+import { Matrix, TextureUvs } from "pixi.js";
+import { EShapeCorner } from "../e-shape-corner";
+export declare const TRIANGLE_ROUNDED_VERTEX_COUNT = 22;
+export declare const TRIANGLE_ROUNDED_INDEX_COUNT = 15;
+export declare const TRIANGLE_ROUNDED_WORLD_SIZE: [number, number, number, number, number];
+export declare const buildTriangleRoundedIndex: (indices: Uint16Array | Uint32Array, voffset: number, ioffset: number) => void;
+export declare const buildTriangleRoundedVertex: (vertices: Float32Array, voffset: number, originX: number, originY: number, sizeX: number, sizeY: number, strokeAlign: number, strokeWidth: number, radius: number, internalTransform: Matrix, worldSize: [number, number, number, number, number]) => void;
+export declare const buildTriangleRoundedClipping: (clippings: Float32Array, voffset: number, corner: EShapeCorner, radius: number) => void;
+export declare const buildTriangleRoundedStep: (steps: Float32Array, clippings: Float32Array, voffset: number, strokeWidth: number, radius: number, antialiasWeight: number, worldSize: [number, number, number, number, number]) => void;
+export declare const buildTriangleRoundedUv: (uvs: Float32Array, voffset: number, textureUvs: TextureUvs, radius: number, worldSize: [number, number, number, number, number]) => void;

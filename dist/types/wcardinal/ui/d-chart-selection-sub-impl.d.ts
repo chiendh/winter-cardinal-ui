@@ -1,0 +1,34 @@
+import { Point, utils } from "pixi.js";
+import { DBaseState } from "./d-base-state";
+import { DChartCoordinate } from "./d-chart-coordinate";
+import { DChartSelectionPoint } from "./d-chart-selection";
+import { DChartSelectionGridlineContainer } from "./d-chart-selection-gridline-container";
+import { DChartSelectionMarker } from "./d-chart-selection-marker";
+import { DChartSelectionSub, DChartSelectionSubOptions } from "./d-chart-selection-sub";
+import { DChartSeries, DChartSeriesHitResult } from "./d-chart-series";
+import { DChartSeriesContainer } from "./d-chart-series-container";
+import { EShape } from "./shape/e-shape";
+export declare class DChartSelectionSubImpl extends utils.EventEmitter implements DChartSelectionSub {
+    protected _container: DChartSeriesContainer | null;
+    protected _isEnabled: boolean;
+    protected _series: DChartSeries | null;
+    protected _coordinateX: DChartCoordinate | null;
+    protected _coordinateY: DChartCoordinate | null;
+    protected _position: Point;
+    protected _point: DChartSelectionPoint;
+    protected _work: Point;
+    protected _gridline: DChartSelectionGridlineContainer;
+    protected _marker: DChartSelectionMarker;
+    protected _state: DBaseState;
+    constructor(options: DChartSelectionSubOptions);
+    bind(container: DChartSeriesContainer): void;
+    unbind(): void;
+    get series(): DChartSeries | null;
+    get position(): Point;
+    get gridline(): DChartSelectionGridlineContainer;
+    get marker(): DChartSelectionMarker;
+    set(series: DChartSeries, result: DChartSeriesHitResult | DChartSelectionSub): void;
+    protected setStyle(this: unknown, shape: EShape, series: DChartSeries): void;
+    unset(): void;
+    update(): void;
+}

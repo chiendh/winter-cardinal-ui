@@ -1,0 +1,11 @@
+import { Matrix, TextureUvs } from "pixi.js";
+import { EShapeCorner } from "../e-shape-corner";
+import { EShapeStrokeSide } from "../e-shape-stroke-side";
+export declare const RECTANGLE_ROUNDED_VERTEX_COUNT = 36;
+export declare const RECTANGLE_ROUNDED_INDEX_COUNT = 24;
+export declare const RECTANGLE_ROUNDED_WORLD_SIZE: [number, number, number];
+export declare const buildRectangleRoundedIndex: (indices: Uint16Array | Uint32Array, voffset: number, ioffset: number) => void;
+export declare const buildRectangleRoundedVertex: (vertices: Float32Array, voffset: number, originX: number, originY: number, sizeX: number, sizeY: number, strokeAlign: number, strokeWidth: number, radius: number, internalTransform: Matrix, worldSize: [number, number, number]) => void;
+export declare const buildRectangleRoundedClipping: (clippings: Float32Array, voffset: number, corner: EShapeCorner, worldSize: [number, number, number]) => void;
+export declare const buildRectangleRoundedStep: (steps: Float32Array, voffset: number, strokeWidth: number, strokeSide: EShapeStrokeSide, corner: EShapeCorner, antialiasWeight: number, worldSize: [number, number, number]) => void;
+export declare const buildRectangleRoundedUv: (uvs: Float32Array, voffset: number, textureUvs: TextureUvs, worldSize: [number, number, number]) => void;

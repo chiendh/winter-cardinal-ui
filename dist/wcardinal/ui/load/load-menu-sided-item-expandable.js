@@ -1,0 +1,61 @@
+/*
+ * Copyright (C) 2019 Toshiba Corporation
+ * SPDX-License-Identifier: Apache-2.0
+ */
+import { DMenuItemCheck } from "../d-menu-item-check";
+import { DMenuItemExpandable } from "../d-menu-item-expandable";
+import { DMenuItemLink } from "../d-menu-item-link";
+import { DMenuItemMenu } from "../d-menu-item-menu";
+import { DMenuItemSeparator } from "../d-menu-item-separator";
+import { DMenuItemSpace } from "../d-menu-item-space";
+import { DMenuSidedItemExpandable } from "../d-menu-sided-item-expandable";
+import { DMenuSidedItemExpandableItemCheck } from "../d-menu-sided-item-expandable-item-check";
+import { DMenuSidedItemExpandableItemLink } from "../d-menu-sided-item-expandable-item-link";
+import { DMenuSidedItemExpandableItemMenu } from "../d-menu-sided-item-expandable-item-menu";
+import { DMenuSidedItemExpandableItemSeparator } from "../d-menu-sided-item-expandable-item-separator";
+import { DMenuSidedItemExpandableItemSpace } from "../d-menu-sided-item-expandable-item-space";
+import { DMenuSidedItemExpandableItemText } from "../d-menu-sided-item-expandable-item-text";
+import { DMenuSidedItemExpandables } from "../d-menu-sided-item-expandables";
+import { DMenuSideds } from "../d-menu-sideds";
+export var loadMenuSidedItemExpandable = function () {
+    DMenuSideds.addItemCreator(function (options) {
+        if (DMenuItemExpandable.isCompatible(options)) {
+            return new DMenuSidedItemExpandable(options);
+        }
+        return null;
+    });
+    DMenuSidedItemExpandables.addItemCreator(function (options) {
+        if (DMenuItemCheck.isCompatible(options)) {
+            return new DMenuSidedItemExpandableItemCheck(options);
+        }
+        return null;
+    });
+    DMenuSidedItemExpandables.addItemCreator(function (options) {
+        if (DMenuItemLink.isCompatible(options)) {
+            return new DMenuSidedItemExpandableItemLink(options);
+        }
+        return null;
+    });
+    DMenuSidedItemExpandables.addItemCreator(function (options, sticky) {
+        if (DMenuItemMenu.isCompatible(options)) {
+            return new DMenuSidedItemExpandableItemMenu(DMenuItemMenu.toSubMenuOptions(options, sticky));
+        }
+        return null;
+    });
+    DMenuSidedItemExpandables.addItemCreator(function (options) {
+        if (DMenuItemSeparator.isCompatible(options)) {
+            return new DMenuSidedItemExpandableItemSeparator(options);
+        }
+        return null;
+    });
+    DMenuSidedItemExpandables.addItemCreator(function (options) {
+        if (DMenuItemSpace.isCompatible(options)) {
+            return new DMenuSidedItemExpandableItemSpace(options);
+        }
+        return null;
+    });
+    DMenuSidedItemExpandables.setItemCreatorDefault(function (options) {
+        return new DMenuSidedItemExpandableItemText(options);
+    });
+};
+//# sourceMappingURL=load-menu-sided-item-expandable.js.map

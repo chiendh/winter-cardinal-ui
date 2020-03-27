@@ -1,0 +1,33 @@
+export declare class DynamicSDFFontGenerator {
+    protected static _INSTANCE: DynamicSDFFontGenerator | null;
+    protected _canvas: HTMLCanvasElement | null;
+    protected _onLostBound: EventListener;
+    protected _onRestoreBound: EventListener;
+    protected _onUnloadBound: EventListener;
+    protected _gl: WebGLRenderingContext | null;
+    protected _texture: WebGLTexture | null;
+    protected _shaderProgram: WebGLProgram | null;
+    protected _vertexPositionAttribute: number;
+    protected _textureCoordAttribute: number;
+    protected _samplerUniform: WebGLUniformLocation | null;
+    protected _sizeUniform: WebGLUniformLocation | null;
+    protected _vb: WebGLBuffer | null;
+    protected _uvb: WebGLBuffer | null;
+    constructor();
+    init(): this;
+    restore(): void;
+    getCanvas(): HTMLCanvasElement | null;
+    getShader(gl: WebGLRenderingContext, code: string, type: boolean): WebGLShader | null;
+    makeShaders(): WebGLShader | null;
+    destroyShaders(): void;
+    updateTexture(source: TexImageSource): WebGLTexture | null;
+    destroyTexture(): void;
+    makeVertexBuffer(): WebGLBuffer | null;
+    destroyVertexBuffer(): void;
+    makeUvBuffer(): WebGLBuffer | null;
+    destroyUvBuffer(): void;
+    render(): void;
+    read(copyCanvas: HTMLCanvasElement): void;
+    destroy(): void;
+    static getInstance(): DynamicSDFFontGenerator;
+}

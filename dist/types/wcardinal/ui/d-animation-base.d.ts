@@ -1,0 +1,30 @@
+import { utils } from "pixi.js";
+import { DAnimation, DAnimationOnEnd, DAnimationOnTime, DAnimationOptions, DAnimationTiming } from "./d-animation";
+export declare class DAnimationBase<TARGET = unknown> extends utils.EventEmitter implements DAnimation<TARGET> {
+    protected _id: number | null;
+    protected _startTime: number;
+    protected _duration: number;
+    protected _durationInverse: number;
+    protected _reverse: boolean;
+    protected _onTime: DAnimationOnTime<TARGET> | undefined;
+    protected _onTimeBaseBound: () => void;
+    protected _onStart: DAnimationOnEnd<TARGET> | undefined;
+    protected _onEnd: DAnimationOnEnd<TARGET> | undefined;
+    protected _timing: DAnimationTiming<TARGET>;
+    protected _target: TARGET | null;
+    constructor(options?: DAnimationOptions<TARGET>);
+    get target(): TARGET | null;
+    set target(target: TARGET | null);
+    get duration(): number;
+    set duration(duration: number);
+    start(reverse?: boolean): void;
+    protected onStart(isReverse: boolean): void;
+    protected onTime(time: number, isReverse: boolean, elapsedTime: number): void;
+    protected onEnd(isReverse: boolean): void;
+    isStarted(): boolean;
+    isReverse(): boolean;
+    protected onTimeBase(): void;
+    protected toTime(elapsedTime: number): number;
+    stop(): void;
+    end(): void;
+}

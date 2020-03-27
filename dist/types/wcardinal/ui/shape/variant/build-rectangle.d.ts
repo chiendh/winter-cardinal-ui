@@ -1,0 +1,15 @@
+import { Matrix, TextureUvs } from "pixi.js";
+import { EShapeStrokeSide } from "../e-shape-stroke-side";
+export declare const RECTANGLE_VERTEX_COUNT = 18;
+export declare const RECTANGLE_INDEX_COUNT = 12;
+export declare const RECTANGLE_WORLD_SIZE: [number, number, number];
+export declare const buildRectangleClipping: (clippings: Float32Array, voffset: number, worldSize: [number, number, number]) => void;
+export declare const buildRectangleClippingVertical: (cx: number, cy: number, cbx: number, cby: number, clippings: Float32Array, voffset: number) => void;
+export declare const buildRectangleIndex: (indices: Uint16Array | Uint32Array, voffset: number, ioffset: number) => void;
+export declare const buildRectangleVertex: (vertices: Float32Array, voffset: number, originX: number, originY: number, sizeX: number, sizeY: number, strokeAlign: number, strokeWidth: number, internalTransform: Matrix, worldSize: [number, number, number]) => void;
+export declare const buildRectangleVertexVertical: (br: number, bx0: number, by0: number, bx1: number, by1: number, bx2: number, by2: number, bx3: number, by3: number, vertices: Float32Array, voffset: number, worldSize: [number, number, number]) => void;
+export declare const buildRectangleStep: (voffset: number, steps: Float32Array, strokeWidth: number, strokeSide: EShapeStrokeSide, antialiasWeight: number, worldSize: [number, number, number]) => void;
+export declare const buildRectangleStepVertical: (bri: number, swx: number, px0: number, px1: number, swy: number, py0: number, py1: number, swt: number, pt0: number, swr: number, pr0: number, swb: number, pb0: number, swl: number, pl0: number, pc0: number, pm0: number, voffset: number, steps: Float32Array) => void;
+export declare const buildRectangleStepHorizontal: (bri: number, swx: number, px0: number, px1: number, swy: number, py0: number, py1: number, swt: number, pt0: number, swr: number, pr0: number, swb: number, pb0: number, swl: number, pl0: number, pc0: number, pm0: number, voffset: number, steps: Float32Array) => void;
+export declare const buildRectangleUv: (uvs: Float32Array, voffset: number, textureUvs: TextureUvs, worldSize: [number, number, number]) => void;
+export declare const buildRectangleUvVertical: (bri: number, x0: number, x1: number, x2: number, x3: number, y0: number, y1: number, y2: number, y3: number, uvs: Float32Array, voffset: number) => void;
